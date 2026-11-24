@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Government of Sindh">
-  <rect width="120" height="120" rx="12" fill="#006400"/>
-  <path d="M60 18l18 18-18 18-18-18z" fill="#fff"/>
-  <circle cx="60" cy="72" r="22" fill="none" stroke="#fff" stroke-width="4"/>
-  <path d="M48 72h24M60 60v24" stroke="#fff" stroke-width="3"/>
-  <text x="60" y="110" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="12" font-weight="700">SINDH</text>
-</svg>

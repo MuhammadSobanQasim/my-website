@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Government of Balochistan">
-  <rect width="120" height="120" rx="12" fill="#1B5E20"/>
-  <circle cx="60" cy="50" r="26" fill="none" stroke="#C8A951" stroke-width="4"/>
-  <path d="M60 28v44M38 50h44" stroke="#C8A951" stroke-width="3"/>
-  <path d="M36 86h48v8H36z" fill="#C8A951"/>
-  <text x="60" y="110" text-anchor="middle" fill="#C8A951" font-family="Arial,sans-serif" font-size="9" font-weight="700">BALOCHISTAN</text>
-</svg>
