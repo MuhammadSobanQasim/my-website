@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Government of Khyber Pakhtunkhwa">
+  <rect width="120" height="120" rx="12" fill="#8B0000"/>
+  <path d="M20 78 L60 22 L100 78 Z" fill="none" stroke="#FFD700" stroke-width="4"/>
+  <circle cx="60" cy="58" r="10" fill="#FFD700"/>
+  <text x="60" y="104" text-anchor="middle" fill="#FFD700" font-family="Arial,sans-serif" font-size="12" font-weight="700">KPK</text>
+</svg>
