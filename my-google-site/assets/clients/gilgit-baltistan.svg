@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Government of Gilgit Baltistan">
+  <rect width="120" height="120" rx="12" fill="#0B3D91"/>
+  <path d="M20 82 L45 40 L60 58 L75 34 L100 82 Z" fill="#fff"/>
+  <path d="M20 82h80" stroke="#FFD700" stroke-width="4"/>
+  <text x="60" y="108" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="10" font-weight="700">GILGIT-BALTISTAN</text>
+</svg>
