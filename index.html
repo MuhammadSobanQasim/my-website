@@ -47,6 +47,71 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(247, 250, 248, 0.96);
+      border-bottom: 1px solid var(--color-line);
+      backdrop-filter: blur(8px);
+    }
+
+    .site-header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1.25rem;
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
+    }
+
+    .site-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .site-brand img {
+      height: 90px;
+      width: auto;
+      flex: 0 0 auto;
+    }
+
+    .site-brand h1 {
+      margin: 0;
+      font-size: 3rem;
+      line-height: 1;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 100%;
+    }
+
+    .site-nav a {
+      padding: 8px 16px;
+      border: 1px solid var(--color-line);
+      border-radius: 6px;
+      color: var(--color-muted);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .site-nav a:hover,
+    .site-nav a:focus-visible {
+      border-color: #e2ebe6;
+      color: var(--color-muted);
+      text-decoration: none;
+    }
+
     img {
       max-width: 100%;
       display: block;
@@ -192,8 +257,16 @@
       color: var(--color-heading);
     }
 
-    .hero h1 {
+    .hero h1,
+    .hero-title {
+      margin: 0;
       max-width: none;
+      color: var(--color-heading);
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4.8vw, 3.1rem);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
     }
 
     .hero-sub {
@@ -357,10 +430,65 @@
     }
 
     /* Experts */
-    .experts-grid {
-      display: grid;
+    .experts-featured {
+      margin-bottom: 1.15rem;
+    }
+
+    .expert.featured {
+      border-color: var(--color-heading);
+      background:
+        linear-gradient(180deg, rgba(15, 77, 66, 0.06), transparent 42%),
+        var(--color-white);
+    }
+
+    .experts-carousel {
+      position: relative;
+    }
+
+    .experts-carousel-viewport {
+      overflow: hidden;
+    }
+
+    .experts-carousel-track {
+      display: flex;
+      align-items: stretch;
       gap: 1.15rem;
-      grid-template-columns: 1fr;
+      transition: transform 700ms ease;
+      will-change: transform;
+    }
+
+    .experts-carousel-track .expert {
+      flex: 0 0 100%;
+      width: 100%;
+      height: auto;
+      min-height: 28rem;
+      align-self: stretch;
+    }
+
+    .experts-carousel-nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      margin-top: 0.85rem;
+    }
+
+    .experts-carousel-btn {
+      min-width: 2.5rem;
+      min-height: 2.5rem;
+      padding: 0;
+      border: 1px solid var(--color-line);
+      border-radius: var(--radius);
+      background: var(--color-white);
+      color: var(--color-heading);
+      font: inherit;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .experts-carousel-btn:hover,
+    .experts-carousel-btn:focus-visible {
+      background: var(--color-panel);
     }
 
     .expert {
@@ -588,9 +716,9 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .experts-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
+      .experts-carousel-track .expert {
+        flex: 0 0 calc(50% - 0.575rem);
+        width: calc(50% - 0.575rem);
       }
 
       .hero-layout {
@@ -628,16 +756,40 @@
       .btn {
         transition: none;
       }
+
+      .experts-carousel-track,
+      .client-track {
+        transition: none;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="wrap site-header-inner">
+      <div class="site-brand">
+        <img src="Site%20Logo/RFP%20LOGO.png" alt="Resilience Future logo" height="90" />
+        <h1>Resilience Future</h1>
+      </div>
+      <nav class="site-nav" aria-label="Page sections">
+        <a href="#top" data-scroll>Home</a>
+        <a href="#focus" data-scroll>Strategic focus</a>
+        <a href="#expertise" data-scroll>Expertise</a>
+        <a href="#resilience" data-scroll>Resilience</a>
+        <a href="#clients" data-scroll>Clients</a>
+        <a href="#inclusive" data-scroll>Inclusive</a>
+        <a href="#experts" data-scroll>Experts</a>
+        <a href="#contact" data-scroll>Contact us</a>
+      </nav>
+    </div>
+  </header>
+
   <!-- ========== HERO: edit company name, tagline, intro ========== -->
   <header class="hero" id="top">
     <div class="wrap hero-layout">
       <div class="hero-main">
         <p class="hero-brand">Resilient Future Professional (Pvt) Ltd</p>
-        <h1>World-Class Highly Qualified &amp; Experienced Professionals</h1>
+        <h2 class="hero-title">World-Class Highly Qualified &amp; Experienced Professionals</h2>
         <p class="hero-sub">Climate-resilient advisory for institutions that rebuild stronger.</p>
         <p class="hero-tag">Building strategies for unpredictable futures</p>
         <p class="hero-copy">
@@ -1074,11 +1226,11 @@
         </p>
       </div>
 
-      <div class="experts-grid">
+      <div class="experts-featured">
         <!-- Expert 1: Dr Zahir Shah -->
-        <article class="expert">
+        <article class="expert featured">
           <h3>Maj Gen Dr Zahir Shah HI (M) (Rtd)</h3>
-          <p class="expert-role">Chief Executive Officer</p>
+          <p class="expert-role">Chairman</p>
           <p class="expert-summary">
             Civil engineering and M&amp;E leader with three decades across UNDP Flood Recovery,
             the Planning Commission, provincial systems, CPEC coordination, and major
@@ -1093,64 +1245,128 @@
             <li>SDG M&amp;E frameworks</li>
           </ul>
         </article>
+      </div>
 
-        <!-- Expert 2: Tassaduq Hussain -->
-        <article class="expert">
-          <h3>Tassaduq Hussain</h3>
-          <p class="expert-role">Senior Adviser — Institutional Strengthening, Capacity Building &amp; M&amp;E</p>
-          <p class="expert-summary">
-            Policy and development professional with 33+ years in government and international
-            development. Anchored Pakistan’s 4RF after the 2022 floods, coordinated PDNA with
-            WB, ADB, EU and UN agencies, and strengthened monitoring for multi-billion recovery
-            pledges. Focus areas include DRR financing, donor coordination, and capacity building.
-          </p>
-          <ul class="expert-tags">
-            <li>4RF / PDNA</li>
-            <li>Disaster risk reduction</li>
-            <li>Governance reforms</li>
-            <li>Donor coordination</li>
-            <li>Capacity development</li>
-          </ul>
-        </article>
+      <div class="experts-carousel" data-experts-carousel>
+        <div class="experts-carousel-viewport">
+          <div class="experts-carousel-track" data-experts-track>
+            <!-- Expert 2: Tassaduq Hussain -->
+            <article class="expert">
+              <h3>Tassaduq Hussain</h3>
+              <p class="expert-role">Senior Adviser — Institutional Strengthening, Capacity Building &amp; M&amp;E</p>
+              <p class="expert-summary">
+                Policy and development professional with 33+ years in government and international
+                development. Anchored Pakistan’s 4RF after the 2022 floods, coordinated PDNA with
+                WB, ADB, EU and UN agencies, and strengthened monitoring for multi-billion recovery
+                pledges. Focus areas include DRR financing, donor coordination, and capacity building.
+              </p>
+              <ul class="expert-tags">
+                <li>4RF / PDNA</li>
+                <li>Disaster risk reduction</li>
+                <li>Governance reforms</li>
+                <li>Donor coordination</li>
+                <li>Capacity Building</li>
+              </ul>
+            </article>
 
-        <!-- Expert 3: Zuhfran Qasim -->
-        <article class="expert">
-          <h3>Zuhfran Qasim</h3>
-          <p class="expert-role">Senior Specialist — Capacity Building &amp; Regulatory Reform</p>
-          <p class="expert-summary">
-            Strategic planning, policy, and investment promotion specialist. Supports capacity
-            building for UNDP Flood Reconstruction partners, Plan Coordination at the Ministry
-            of Planning, and regulatory modernisation with BOI / SIFC. Previously led Ease of
-            Doing Business reforms that raised Pakistan’s global ranking.
-          </p>
-          <ul class="expert-tags">
-            <li>Capacity building</li>
-            <li>Regulatory reform</li>
-            <li>Investment facilitation</li>
-            <li>Planning coordination</li>
-            <li>Stakeholder engagement</li>
-          </ul>
-        </article>
+            <!-- Expert 3: Zuhfran Qasim -->
+            <article class="expert">
+              <h3>Zuhfran Qasim</h3>
+              <p class="expert-role">Senior Specialist — Capacity Building &amp; Regulatory Reform</p>
+              <p class="expert-summary">
+                Strategic planning, policy, and investment promotion specialist. Supports capacity
+                building for UNDP Flood Reconstruction partners, Plan Coordination at the Ministry
+                of Planning, and regulatory modernisation with BOI / SIFC. Previously led Ease of
+                Doing Business reforms that raised Pakistan’s global ranking.
+              </p>
+              <ul class="expert-tags">
+                <li>Capacity building</li>
+                <li>Regulatory reform</li>
+                <li>Investment facilitation</li>
+                <li>Planning coordination</li>
+                <li>Stakeholder engagement</li>
+              </ul>
+            </article>
 
-        <!-- Expert 4: Zafar ul Hassan -->
-        <article class="expert">
-          <h3>Zafar ul Hassan</h3>
-          <p class="expert-role">Senior Fellow — Macroeconomics &amp; SDGs</p>
-          <p class="expert-summary">
-            Former Joint Chief Economist at the Ministry of Planning &amp; Development and
-            Executive Director of the CPEC Support Unit. Led Pakistan’s SDG Support Unit, with
-            senior roles in macroeconomic forecasting, poverty alleviation, and economic
-            advisory. M.Phil in Applied Economics; contributor to Vision 2025 and social
-            protection frameworks.
-          </p>
-          <ul class="expert-tags">
-            <li>Macroeconomics</li>
-            <li>SDGs</li>
-            <li>Poverty &amp; social protection</li>
-            <li>Economic policy</li>
-            <li>CPEC / development planning</li>
-          </ul>
-        </article>
+            <!-- Expert 4: Zafar ul Hassan -->
+            <article class="expert">
+              <h3>Zafar ul Hassan</h3>
+              <p class="expert-role">Senior Fellow — Macroeconomics &amp; SDGs</p>
+              <p class="expert-summary">
+                Former Joint Chief Economist at the Ministry of Planning &amp; Development and
+                Executive Director of the CPEC Support Unit. Led Pakistan’s SDG Support Unit, with
+                senior roles in macroeconomic forecasting, poverty alleviation, and economic
+                advisory. M.Phil in Applied Economics; contributor to Vision 2025 and social
+                protection frameworks.
+              </p>
+              <ul class="expert-tags">
+                <li>Macroeconomics</li>
+                <li>SDGs</li>
+                <li>Poverty &amp; social protection</li>
+                <li>Economic policy</li>
+                <li>CPEC / development planning</li>
+              </ul>
+            </article>
+
+            <!-- Expert 5: Khizar Khan -->
+            <article class="expert">
+              <h3>Khizar Khan</h3>
+              <p class="expert-role">International Lawyer &amp; Arbitrator</p>
+              <p class="expert-summary">
+                Khizar Khan a qualified international lawyer Bacholars in Law UK, MBA US, LLM UK, &amp; accredited Arbitrator with 10+ years of experience in contractually matters, third party validation, state contracts, legal risk mitigation, negotiations and settlements
+              </p>
+              <ul class="expert-tags">
+                <li>International law</li>
+                <li>Arbitration</li>
+                <li>Third-party validation</li>
+                <li>State contracts</li>
+                <li>Legal risk mitigation</li>
+              </ul>
+            </article>
+
+            <!-- Expert 6: Niaz Muhammad Khan -->
+            <article class="expert">
+              <h3>Niaz Muhammad Khan</h3>
+              <p class="expert-role">Senior Adviser — Public Policy &amp; Institutional Reform</p>
+              <p class="expert-summary">
+                Seasoned public policy professional with over 30 years in industrial and trade policy,
+                economic diplomacy, TVET reform, social protection, and disaster resilience across
+                federal ministries. He has led PSDP design aligned to NDCs and SDGs, and steered
+                institutional restructuring with bilateral and multilateral development partners.
+              </p>
+              <ul class="expert-tags">
+                <li>Industrial &amp; trade policy</li>
+                <li>Social protection</li>
+                <li>Capacity building</li>
+                <li>Disaster resilience</li>
+                <li>Donor coordination</li>
+              </ul>
+            </article>
+
+            <!-- Expert 7: Muhammad Soban Qasim -->
+            <article class="expert">
+              <h3>Muhammad Soban Qasim</h3>
+              <p class="expert-role">Data Analyst &amp; Project Reporting Specialist</p>
+              <p class="expert-summary">
+                Business, financial, and data analyst with six years’ experience delivering analytics,
+                dashboards, and full-lifecycle system solutions. He currently leads project delivery
+                and performance reporting for firm initiatives, turning operational and financial data
+                into decisions for partners and clients.
+              </p>
+              <ul class="expert-tags">
+                <li>Data analysis</li>
+                <li>Project management</li>
+                <li>KPI reporting</li>
+                <li>Power BI / Tableau</li>
+                <li>Process improvement</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+        <div class="experts-carousel-nav">
+          <button type="button" class="experts-carousel-btn" data-experts-prev aria-label="Previous experts">‹</button>
+          <button type="button" class="experts-carousel-btn" data-experts-next aria-label="Next experts">›</button>
+        </div>
       </div>
     </div>
   </section>
@@ -1167,7 +1383,7 @@
         <div class="contact-block">
           <h3>Pakistan offices</h3>
           <ul>
-            <li>3006, World Trade Center, Giga Mall, RWP</li>
+            <li>3003A, World Trade Center, Giga Mall, RWP</li>
             <li>79 Executive, Chaklala Scheme III, RWP</li>
           </ul>
         </div>
@@ -1214,57 +1430,172 @@
         });
       });
 
-      var root = document.querySelector("[data-turntable]");
-      var track = document.querySelector("[data-turntable-track]");
-      if (!root || !track) return;
-
-      var originals = Array.prototype.slice.call(track.children);
-      if (!originals.length) return;
-
-      originals.forEach(function (node) {
-        track.appendChild(node.cloneNode(true));
-      });
-
-      var index = 0;
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      function stepWidth() {
-        var first = track.children[0];
-        if (!first) return 0;
-        var styles = window.getComputedStyle(track);
-        var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-        return first.getBoundingClientRect().width + gap;
-      }
+      (function initClientTurntable() {
+        var root = document.querySelector("[data-turntable]");
+        var track = document.querySelector("[data-turntable-track]");
+        if (!root || !track) return;
 
-      function go(next) {
-        var width = stepWidth();
-        if (!width) return;
-        index = next;
-        track.style.transform = "translateX(" + (-index * width) + "px)";
-        if (index >= originals.length) {
-          window.setTimeout(function () {
-            track.style.transition = "none";
-            index = 0;
-            track.style.transform = "translateX(0)";
-            track.offsetHeight;
-            track.style.transition = "";
-          }, reduceMotion ? 0 : 720);
+        var originals = Array.prototype.slice.call(track.children);
+        if (!originals.length) return;
+
+        originals.forEach(function (node) {
+          track.appendChild(node.cloneNode(true));
+        });
+
+        var index = 0;
+
+        function stepWidth() {
+          var first = track.children[0];
+          if (!first) return 0;
+          var styles = window.getComputedStyle(track);
+          var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+          return first.getBoundingClientRect().width + gap;
         }
-      }
 
-      if (!reduceMotion) {
-        window.setInterval(function () {
-          go(index + 1);
-        }, 5000);
-      }
+        function go(next) {
+          var width = stepWidth();
+          if (!width) return;
+          index = next;
+          track.style.transform = "translateX(" + (-index * width) + "px)";
+          if (index >= originals.length) {
+            window.setTimeout(function () {
+              track.style.transition = "none";
+              index = 0;
+              track.style.transform = "translateX(0)";
+              track.offsetHeight;
+              track.style.transition = "";
+            }, reduceMotion ? 0 : 720);
+          }
+        }
 
-      window.addEventListener("resize", function () {
-        track.style.transition = "none";
-        track.style.transform = "translateX(" + (-(index % originals.length) * stepWidth()) + "px)";
-        index = index % originals.length;
-        track.offsetHeight;
-        track.style.transition = "";
-      });
+        if (!reduceMotion) {
+          window.setInterval(function () {
+            go(index + 1);
+          }, 5000);
+        }
+
+        window.addEventListener("resize", function () {
+          track.style.transition = "none";
+          track.style.transform = "translateX(" + (-(index % originals.length) * stepWidth()) + "px)";
+          index = index % originals.length;
+          track.offsetHeight;
+          track.style.transition = "";
+        });
+      })();
+
+      (function initExpertsCarousel() {
+        var root = document.querySelector("[data-experts-carousel]");
+        var track = document.querySelector("[data-experts-track]");
+        var prevBtn = document.querySelector("[data-experts-prev]");
+        var nextBtn = document.querySelector("[data-experts-next]");
+        if (!root || !track) return;
+
+        var cards = Array.prototype.slice.call(track.children);
+        if (!cards.length) return;
+
+        var index = 0;
+        var autoTimer = null;
+        var resumeTimer = null;
+        var paused = false;
+        var touchStartX = null;
+
+        function perView() {
+          return window.matchMedia("(min-width: 700px)").matches ? 2 : 1;
+        }
+
+        function maxIndex() {
+          return Math.max(0, cards.length - perView());
+        }
+
+        function stepWidth() {
+          var first = track.children[0];
+          if (!first) return 0;
+          var styles = window.getComputedStyle(track);
+          var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+          return first.getBoundingClientRect().width + gap;
+        }
+
+        function render() {
+          if (index > maxIndex()) index = maxIndex();
+          if (index < 0) index = 0;
+          track.style.transform = "translateX(" + (-index * stepWidth()) + "px)";
+        }
+
+        function go(delta) {
+          index += delta;
+          if (index > maxIndex()) index = 0;
+          if (index < 0) index = maxIndex();
+          render();
+        }
+
+        function stopAuto() {
+          if (autoTimer) {
+            window.clearInterval(autoTimer);
+            autoTimer = null;
+          }
+        }
+
+        function startAuto() {
+          stopAuto();
+          if (reduceMotion || paused) return;
+          autoTimer = window.setInterval(function () {
+            go(1);
+          }, 10000);
+        }
+
+        function onInteract() {
+          paused = true;
+          stopAuto();
+          if (resumeTimer) window.clearTimeout(resumeTimer);
+          resumeTimer = window.setTimeout(function () {
+            paused = false;
+            startAuto();
+          }, 60000);
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            onInteract();
+            go(-1);
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            onInteract();
+            go(1);
+          });
+        }
+
+        root.addEventListener("pointerdown", onInteract);
+        root.addEventListener("touchstart", function (event) {
+          onInteract();
+          if (event.changedTouches && event.changedTouches[0]) {
+            touchStartX = event.changedTouches[0].clientX;
+          }
+        }, { passive: true });
+
+        root.addEventListener("touchend", function (event) {
+          if (touchStartX == null || !event.changedTouches || !event.changedTouches[0]) return;
+          var dx = event.changedTouches[0].clientX - touchStartX;
+          touchStartX = null;
+          if (Math.abs(dx) < 40) return;
+          onInteract();
+          go(dx < 0 ? 1 : -1);
+        }, { passive: true });
+
+        window.addEventListener("resize", function () {
+          track.style.transition = "none";
+          render();
+          track.offsetHeight;
+          track.style.transition = "";
+        });
+
+        render();
+        startAuto();
+      })();
     })();
   </script>
 </body>
